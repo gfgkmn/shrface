@@ -959,7 +959,8 @@ Argument DOM dom."
   "Toggle shr minor mode.
 1. imenu
 2. outline-minor-mode
-3. org-indent-mode"
+;; disable by gfgkmn
+;; 3. org-indent-mode"
   :group 'shrface
   (cond
    (shrface-mode
@@ -968,15 +969,19 @@ Argument DOM dom."
     (unless shrface-toggle-bullets
       (shrface-regexp)
       (setq imenu-create-index-function #'shrface-imenu-get-tree)
-      (outline-minor-mode)
-      (org-indent-mode))
+      (outline-minor-mode))
+      ;; ;; disable by gfgkmn
+      ;; (outline-minor-mode)
+      ;; (org-indent-mode))
     (run-hooks 'shrface-mode-hook))
    (t
     (shrface-resume)
     (setq shr-bullet "* ")
     (setq imenu-create-index-function nil)
-    (outline-minor-mode -1)
-    (org-indent-mode -1))))
+    (outline-minor-mode -1))))
+    ;; ;; disable by gfgkmn
+    ;; (outline-minor-mode -1)
+    ;; (org-indent-mode -1))))
 
 (defun shrface-basic()
   "Enable the shrface faces.
@@ -1073,7 +1078,8 @@ current buffer and display the clickable result in
       (switch-to-buffer-other-window occur-buf)
       (read-only-mode)
       (outline-minor-mode)
-      (org-indent-mode)
+      ;; ;; disable by gfgkmn
+      ;; (org-indent-mode)
       (goto-char (point-min)))))
 
 (defun shrface-href-collect-all ()
